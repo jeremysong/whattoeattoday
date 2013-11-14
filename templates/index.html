@@ -22,13 +22,18 @@
         h2 {
             text-align: center;
         }
+
     </style>
 
     <script>
         $(document).ready(function () {
+            $('#image2').hide()
+
             $('#button').click(function () {
                 $('#button').attr("disabled", "disabled");
                 $.post("choose/", function (data) {
+                    $('#image').hide()
+                    $('#image2').show()
                     $('#result').text(data.toString());
                     $('#button').removeAttr('disabled');
                 });
@@ -36,6 +41,10 @@
 
             $('#image').click(function() {
                 alert("虎你熊脸！");
+            })
+
+            $('#image2').click(function() {
+                alert("这是被上帝选中的！");
             })
         });
 
@@ -47,9 +56,11 @@
 <div class="container">
     <div class="jumbotron">
         <h2>Can't decide what to eat? Let me choose for you.</h2>
+        <small>{% now "jS F Y H:i" %}</small>
         <br>
 
-        <img id="image" class="center" src="http://www.kilblaanfarm.com/alpaca.jpg">
+        <img id="image" class="center img-circle" style="width:70%" src="http://www.kilblaanfarm.com/alpaca.jpg" >
+        <img id="image2" class="center img-circle" style="width:70%" src="http://image.toutlecine.com/photos/l/o/s/lost-in-translation-2003-12-g.jpg">
         <br>
 
         <div class="row">
