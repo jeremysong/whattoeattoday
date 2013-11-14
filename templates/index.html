@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
     <style type="text/css">
         body {
@@ -27,25 +28,22 @@
 
     <script>
         $(document).ready(function () {
-            $('#image2').hide()
+            $('#image').popover({title: "摸你妹！", content: "虎你熊脸！"});
+            $('#image2').popover({title: "恭喜你！", content: "这是被上帝选中的！"}).hide();
+
+            $('#resultDiv').hide();
 
             $('#button').click(function () {
                 $('#button').attr("disabled", "disabled");
                 $.post("choose/", function (data) {
+                    $('#resultDiv').show();
                     $('#image').hide()
                     $('#image2').show()
                     $('#result').text(data.toString());
-                    $('#button').removeAttr('disabled');
+                    $('#button').removeAttr('disabled').text('Try again?');
                 });
             });
 
-            $('#image').click(function() {
-                alert("虎你熊脸！");
-            })
-
-            $('#image2').click(function() {
-                alert("这是被上帝选中的！");
-            })
         });
 
     </script>
@@ -73,7 +71,7 @@
         </div>
         <br>
 
-        <div class="row">
+        <div class="row" id="resultDiv">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="alert alert-danger">
