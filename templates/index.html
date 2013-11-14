@@ -52,19 +52,37 @@
 </head>
 <body>
 <div class="container">
+    <!-- navigate bar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">What to eat today?</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/jeremysong/whattoeattoday/issues">Find any issues? Create new issue
+                        report here.</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- main content -->
     <div class="jumbotron">
         <h2>Can't decide what to eat? Let me choose for you.</h2>
         <br>
 
-        <img id="image" class="center img-circle" style="width:70%" src="http://www.kilblaanfarm.com/alpaca.jpg" >
-        <img id="image2" class="center img-circle" style="width:70%" src="http://image.toutlecine.com/photos/l/o/s/lost-in-translation-2003-12-g.jpg">
+        <img id="image" class="center img-circle" style="width:70%" src="http://www.kilblaanfarm.com/alpaca.jpg">
+        <img id="image2" class="center img-circle" style="width:70%"
+             src="http://image.toutlecine.com/photos/l/o/s/lost-in-translation-2003-12-g.jpg">
         <br>
 
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <form id="submit" action="choose" method="POST">
-                    <button id="button" type="button" class="btn btn-success btn-lg btn-block">I'm feeling lucky!</button>
+                    <button id="button" type="button" class="btn btn-success btn-lg btn-block">I'm feeling lucky!
+                    </button>
                 </form>
             </div>
             <div class="col-md-4"></div>
