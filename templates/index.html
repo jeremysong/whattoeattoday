@@ -40,9 +40,9 @@
                     url: "choose/",
                     data: $('#form').serialize(),
                     success: function (data) {
+                        $('#image').popover('hide').hide()
+                        $('#image2').popover('hide').show()
                         $('#resultDiv').show();
-                        $('#image').hide()
-                        $('#image2').show()
                         $('#result').text(data.toString());
                         $('#button').removeAttr('disabled').text('Try again?');
                     }});

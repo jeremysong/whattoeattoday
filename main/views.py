@@ -14,9 +14,9 @@ def choose(request):
     if request.method == 'POST':
         option = request.POST['option']
         if option == 'Noon':
-            restaurants = Restaurant.objects.filter(noon=1).exclude(evening=1)
+            restaurants = Restaurant.objects.filter(noon=1)
         elif option == 'Evening':
-            restaurants = Restaurant.objects.filter(noon=0).exclude(evening=0)
+            restaurants = Restaurant.objects.filter(evening=1)
         else:
             restaurants = Restaurant.objects.all()
         name_list = [restaurant.name for restaurant in restaurants]
