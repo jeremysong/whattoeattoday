@@ -35,13 +35,17 @@
 
             $('#button').click(function () {
                 $('#button').attr("disabled", "disabled");
-                $.post("choose/", function (data) {
-                    $('#resultDiv').show();
-                    $('#image').hide()
-                    $('#image2').show()
-                    $('#result').text(data.toString());
-                    $('#button').removeAttr('disabled').text('Try again?');
-                });
+                $.ajax({
+                    type: "POST",
+                    url: "choose/",
+                    data: $('#form').serialize(),
+                    success: function (data) {
+                        $('#resultDiv').show();
+                        $('#image').hide()
+                        $('#image2').show()
+                        $('#result').text(data.toString());
+                        $('#button').removeAttr('disabled').text('Try again?');
+                    }});
             });
 
         });
@@ -77,16 +81,22 @@
              src="http://image.toutlecine.com/photos/l/o/s/lost-in-translation-2003-12-g.jpg">
         <br>
 
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <form id="submit" action="choose" method="POST">
-                    <button id="button" type="button" class="btn btn-success btn-lg btn-block">I'm feeling lucky!
-                    </button>
-                </form>
+        <form role="form" id="form">
+            <div class="col-md-4 col-md-offset-4">
+                <select class="form-control" name="option">
+                    <option selected>{{ option1 }}</option>
+                    <option>{{ option2 }}</option>
+                    <option>{{ option3 }}</option>
+                </select>
             </div>
-            <div class="col-md-4"></div>
-        </div>
+            <br>
+
+            <div class="col-md-4 col-md-offset-4">
+                <button id="button" type="submit" class="btn btn-success btn-lg btn-block">I'm feeling lucky!</button>
+            </div>
+        </form>
+
+        <br>
         <br>
 
         <div class="row" id="resultDiv">

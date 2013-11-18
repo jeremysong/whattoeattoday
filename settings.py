@@ -31,7 +31,7 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": "dev.db",
+            "NAME": "whattoeattoday.db",
             "USER": "",
             "PASSWORD": "",
             "HOST": "",
